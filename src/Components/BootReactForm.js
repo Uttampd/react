@@ -3,10 +3,6 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import './BootReactForm.css'
 
-
-
-
-
 export class BootReactForm extends Component {
     constructor(props) {
         super(props)
@@ -17,7 +13,11 @@ export class BootReactForm extends Component {
             age: '',
             gender: 'Male',
             city: '',
-            comments: ''
+            comments: '',
+            chkbox : false,
+            chkbox1 : false 
+            
+
         }
         this.handleCityChange = this.handleCityChange.bind(this)
     }
@@ -54,7 +54,7 @@ export class BootReactForm extends Component {
 
     handleCommentsChange = (event) => {
         this.setState({
-            comments: event.target.value
+            comments: event.target.checked
         })
     }
 
@@ -68,6 +68,7 @@ export class BootReactForm extends Component {
     handleChkboxChange = (event) => {
         this.setState({
             chkbox: event.target.value
+           
         })
     }
 
@@ -85,8 +86,8 @@ export class BootReactForm extends Component {
             gender: 'Male',
             city: 'City not selected',
             comments: '',
-            chkbox: 'false',
-            chkbox1: 'false'
+            chkbox: false,
+            chkbox1: false
 
         })
        
@@ -137,8 +138,8 @@ export class BootReactForm extends Component {
                 
                 <div className=" form-group checkbox-inline form-check-label">
                 <label className="col-sm-6">Hobbies</label>
-                <input type="checkbox" name="chkbox" checked={this.state.chkbox}  onChange={this.handleChkboxChange} value = "painting" className="form-control"  required />Painting
-                <input type="checkbox" name="chkbox1" checked={this.state.chkbox1} onChange={this.handleChkbox1Change} value = "cricket" className="form-control" required />Cricket<br /><br />
+                <input type="checkbox" name="chkbox" checked={this.chkbox}  onChange={this.handleChkboxChange} value = "painting" className="form-control"  required />Painting
+                <input type="checkbox" name="chkbox1" checked={this.chkbox1} onChange={this.handleChkbox1Change} value = "cricket" className="form-control" required />Cricket<br /><br />
                 </div>
                 
 
@@ -155,7 +156,7 @@ export class BootReactForm extends Component {
                 
                 <div className="form-group form-inline">
                 <button type="submit" className="btn btn-success col-md-4 marg ">Submit</button>
-                <button type="reset" onClick="resetForm()" className="btn btn-danger col-md-4 ">Reset</button>
+                <button type="reset" onClick={this.resetForm} className="btn btn-danger col-md-4 ">Reset</button>
                 </div>
 
                 
