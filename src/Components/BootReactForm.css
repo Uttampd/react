@@ -1,0 +1,16 @@
+.center_div{
+    margin: 0 auto;
+    width:50% /* value of your choice which suits your alignment */
+}
+
+.text-left{
+    text-align: left;
+}
+.marg{
+    margin: 50px;
+    align-self: center;
+}
+
+.ali{
+    text-align: left;
+}
